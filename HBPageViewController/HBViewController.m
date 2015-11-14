@@ -51,7 +51,14 @@
     _page.viewControllers = @[_one, _two, _three, _four];
     // Add HBPageViewController's view as subview to the View Controller main view.
     [_page setEnablePickerChin:YES];
+    
+    [self addChildViewController:_page];
     [self.view addSubview:_page.view];
+    [_page didMoveToParentViewController:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
